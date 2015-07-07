@@ -1,15 +1,16 @@
 (function() {
   'use strict';
-  angular
+  var app = angular
     .module('myApp', [
       'ngAnimate',
       'ngCookies',
       // 'ngMessages',
       'ngMaterial',
       'ui.router'
-    ])
-    .config( function ($stateProvider, $urlRouterProvider) {
-      $urlRouterProvider.otherwise('/');
+    ]);
+    app.config(['$stateProvider', '$urlRouterProvider',
+    function ($stateProvider, $urlRouterProvider) {
+      // $urlRouterProvider.otherwise('/');
       $stateProvider
 
         .state('login', {
@@ -28,6 +29,6 @@
           controller:'MedInfoCtrl'
         });
 
-    });
+    }]);
 
 }());
