@@ -1,17 +1,23 @@
-<hgroup>
-  <h1>Need a Carpool</h1>
-  <h3>Login Here</h3>
-</hgroup>
-<form>
-  <div class="group">
-    <input type="text"><span class="highlight"></span><span class="bar"></span>
-    <label>User Name</label>
-  </div>
-  <div class="group">
-    <input type="email"><span class="highlight"></span><span class="bar"></span>
-    <label>Password</label>
-  </div>
-    <button type="button" class="button buttonBlue">Login</button>
-  <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+{{kishan}}
 
-</form>
+<div class="loginForm">
+<section layout="row" layout-sm="column" layout-align="center center">
+  <md-content md-theme="docs-dark" layout-padding layout="row" layout-sm="column">
+      <md-input-container>
+          <label>User Name</label>
+          <input ng-model="user.username">
+      </md-input-container>
+      <md-input-container>
+        <label>Password</label>
+        <input ng-model="user.password">
+      </md-input-container>
+  </md-content>
+  <br>
+  <section layout="row" layout-sm="column" layout-align="center center">
+    <md-button class="md-raised">Login</md-button>
+  </section>
+  </section>
+  <section layout="row" layout-sm="column" layout-align="center center">
+  Don't have an account<md-button>register here</md-button>
+  </section>
+</div>

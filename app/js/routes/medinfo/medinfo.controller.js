@@ -3,9 +3,9 @@
 
   angular.module('myApp',['ui.router'])
 
-  .controller('LoginCtrl', ['$scope', '$http', '$state',
+  .controller('MedInfoCtrl', ['$scope', '$http', '$state',
    function($scope, $http, $state){
-      $scope.kishan = 'Bhakta';
+
 
 
     }

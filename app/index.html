@@ -4,40 +4,19 @@
   <title>Project Name</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/vendor/normalize.css">
-  <link rel="stylesheet" href="/css/vendor/angular-material.css">
+  <link rel="stylesheet" href="css/vendor/angular-material.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-app="App">
+<body ng-app="myApp">
 
-  <div class="header">
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
+  <a ui-sref="login">Login</a>
+  <a ui-sref="reg">Registration</a>
+  <a ui-sref="medInfo">Medical Info</a>
 
-          <a class="navbar-brand" href="#/">finalProject</a>
-        </div>
+  <div ui-view>
 
-        <div class="collapse">
-
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#/">Home</a></li>
-            <li><a ng-href="#/">About</a></li>
-            <li><a ng-href="#/">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 
-  <div class="container">
-  <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-  </div>
-
-  <div class="footer">
-    <div class="container">
-      <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-    </div>
-  </div>
 
 
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -54,13 +33,18 @@
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/underscore.js"></script>
   <script src="js/vendor/angular.js"></script>
-  <script src="js/vendor/angular-ui-router.min.js"></script>
+  <script src="js/vendor/angular-ui-router.js"></script>
   <script src="js/vendor/angular-cookies.js"></script>
   <script src="js/vendor/angular-animate.js"></script>
   <script src="js/vendor/angular-aria.js"></script>
   <script src="js/vendor/angular-material.js"></script>
   <!-- MAIN -->
   <script src="js/main.js"></script>
+  <!-- Controllers -->
+  <script src="js/routes/login/login.controller.js"></script>
+  <script src="js/routes/medinfo/medinfo.controller.js"></script>
+  <script src="js/routes/profile/profile.controller.js"></script>
+  <script src="js/routes/registration/reg.controller.js"></script>
 
 </body>
 </html>
