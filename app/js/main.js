@@ -3,5 +3,6 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngMessages',
-    'ngMaterial'
+    'ngMaterial',
+    'ui.router'
   ]);
