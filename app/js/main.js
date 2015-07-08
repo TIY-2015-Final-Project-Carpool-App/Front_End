@@ -23,10 +23,20 @@
           templateUrl:'js/routes/registration/reg.tpl.html',
           controller: 'RegCtrl'
         })
+        .state('childReg', {
+          url: '/registration',
+          templateUrl:'js/routes/registration/childreg.tpl.html',
+          controller: 'RegCtrl'
+        })
         .state('medInfo', {
           url: '/medinfo',
           templateUrl:'js/routes/medinfo/medinfo.tpl.html',
           controller:'MedInfoCtrl'
+        })
+        .state('editInfo', {
+          url: '/edituserinfo',
+          templateUrl:'js/routes/profile/editprofile.tpl.html',
+          controller:'ProfileCtrl'
         });
 
     }]);

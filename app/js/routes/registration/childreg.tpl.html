@@ -1,37 +1,6 @@
-This is the Medical Information Page
+This is the Registration Page for Child by Parent/Guardian
 
 <md-content>
-  <div layout layout-sm="column">
-    <md-input-container flex>
-      <label>Allergies and Reactions</label>
-    <input ng-model="user.allergyReactions">
-  </div>
-
-  <div layout layout-sm="column">
-    <md-input-container flex>
-      <label>Medical Conditions</label>
-    <input ng-model="user.medConditions">
-  </div>
-
-  <div layout layout-sm="column">
-    <md-input-container flex>
-      <label>Medications</label>
-    <input ng-model="user.medication">
-  </div>
-
-  <div layout layout-sm="column">
-    <md-input-container flex>
-      <label>Insurance Company (Optional)</label>
-      <input ng-model="user.insuranceCo">
-    </md-input-container>
-    <md-input-container flex>
-      <label>Religious Preference (Optional)</label>
-      <input ng-model="user.religion">
-    </md-input-container>
-  </div>
-
-  <h3>Emergency Contact Information</h3>
-
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>First name</label>
@@ -43,9 +12,24 @@ This is the Medical Information Page
     </md-input-container>
   </div>
 
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Age</label>
+      <input ng-model="user.age">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Height in inches</label>
+      <input ng-model="user.height">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Weight in lbs</label>
+      <input ng-model="user.weight">
+    </md-input-container>
+  </div>
+
   <md-input-container flex>
     <label>Address</label>
-  <input ng-model="user.address">
+  <input ng-model="user.address" placeholder="Address, City, State and Postal Code">
   </md-input-container>
 
   <div layout layout-sm="column">
@@ -68,16 +52,14 @@ This is the Medical Information Page
       <label>Phone Number</label>
       <input ng-model="user.phonenumber">
     </md-input-container>
-    <md-input-container flex>
-      <label>Alternate Phone Number (Optional)</label>
-      <input ng-model="user.altPhoneNumber">
-    </md-input-container>
   </div>
-
-  <!-- add a button to render another emergency contact form -->
 
   <section layout="row" layout-sm="column" layout-align="center center">
     <md-button class="md-raised">Submit</md-button>
   </section>
 
+  <a ui-sref="medInfo">Add Medical Information Here (Optional)</a>
 </md-content>
+
+
+<!-- feet to inches image url 'https://converters360.com/charts/images-length/feet-to-inches.png' -->
