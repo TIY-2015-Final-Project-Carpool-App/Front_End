@@ -12,7 +12,7 @@
       URL: 'https://ancient-sea-7341.herokuapp.com/',
       CONFIG: {
         headers:{
-          'access_token' : ''
+          'Access-Token' : ''
         }
       }
     });

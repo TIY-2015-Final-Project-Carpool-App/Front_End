@@ -3,8 +3,8 @@
 
   angular.module('myApp')
 
-  .controller('LoginCtrl', ['$scope', '$http', '$state',
-   function($scope, $http, $state){
+  .controller('LoginCtrl', ['$scope', '$http', '$state', 'RegService',
+   function($scope, $http, $state, RegService){
       $scope.kishan = 'Bhakta';
 
       console.log('HERE');
