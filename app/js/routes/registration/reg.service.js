@@ -25,7 +25,6 @@
           });
         };
 
-
         //Login User and add new cookies
         this.loginUser =  function (user) {
           // console.log(user);
@@ -37,8 +36,6 @@
           });
         };
 
-
-
         // Log out user and remove all cookies
         this.logoutUser = function (user) {
           $cookies.remove('access_token');
@@ -47,7 +44,7 @@
           $state.go('login');
         };
 
-        // If visitor routes to home page and is logged in, route to dashboard
+        // If visitor routes to login page and is logged in, route to dashboard
         this.homeCheckLogin = function () {
           isLoggedIn = $cookies.get('access_token') !== undefined;
           if (isLoggedIn) {

@@ -10,13 +10,15 @@
 </head>
 <body ng-app="myApp">
 
+<div class="login" ng-controller="LoginCtrl">
   <a ui-sref="login">Login</a> |
   <a ui-sref="reg">Registration</a> |
   <a ui-sref="medInfo">Medical Info</a> |
   <a ui-sref="dashboard">Dashboard</a> |
   <a ui-sref="editInfo">Edit User Info</a> |
-  <a ui-sref="logoutUser">Sign Out</a>
-
+  <a ui-sref="logoutUser" ng-click="logoutUser()">Sign Out</a>
+</div>
+  
 
   <div ui-view>
 
@@ -59,11 +61,9 @@
   <script src="js/routes/dashboard/dashboard.service.js"></script>
 
   <!-- Medical Info -->
-  <!-- // <script src="js/routes/medinfo/medinfo.controller.js"></script>
-  // <script src="js/routes/medinfo/medinfo.factory.js"></script> -->
+  <script src="js/routes/medinfo/medinfo.controller.js"></script>
   <!-- Profile -->
-  <!-- // <script src="js/routes/profile/profile.controller.js"></script>
-  // <script src="js/routes/profile/profile.factory.js"></script> -->
+  <script src="js/routes/profile/profile.controller.js"></script>
   <!-- Registration -->
 
 

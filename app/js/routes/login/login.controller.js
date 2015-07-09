@@ -11,13 +11,14 @@
        };
 
      $scope.logoutUser = function () {
+       console.log('here');
           RegService.logoutUser();
        };
-     $scope.homeCheckLogin = function () {
-          RegService.homeCheckLogin();
+     $scope.homeCheckLogin = function (user) {
+          RegService.homeCheckLogin(user);
        };
-     $scope.checkLogin = function () {
-          RegService.checkLogin();
+     $scope.checkLogin = function (user) {
+          RegService.checkLogin(user);
        };
     }
   ]);
