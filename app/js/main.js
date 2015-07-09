@@ -26,6 +26,11 @@
           templateUrl:'js/routes/login/login.tpl.html',
           controller: 'LoginCtrl'
         })
+        .state('logoutUser', {
+          url: '/',
+          templateUrl:'js/routes/login/login.tpl.html',
+          controller: 'LoginCtrl'
+        })
         .state('reg', {
           url: '/registration',
           templateUrl:'js/routes/registration/reg.tpl.html',
@@ -40,6 +45,11 @@
           url: '/medinfo',
           templateUrl:'js/routes/medinfo/medinfo.tpl.html',
           controller:'MedInfoCtrl'
+        })
+        .state('dashboard', {
+          url: '/dashboard',
+          templateUrl:'js/routes/dashboard/dashboard.tpl.html',
+          controller:'DashboardCtrl'
         })
         .state('editInfo', {
           url: '/edituserinfo',

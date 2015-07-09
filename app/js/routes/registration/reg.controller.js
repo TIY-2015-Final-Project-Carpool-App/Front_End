@@ -8,7 +8,6 @@
 
      $scope.addUser = function (user) {
           RegService.addUser(user);
-          //console.log(Access-Token);
         };
 
    }
