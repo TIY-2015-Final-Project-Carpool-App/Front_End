@@ -6,7 +6,8 @@
       'ngCookies',
       // 'ngMessages',
       'ngMaterial',
-      'ui.router'
+      'ui.router',
+      'ui.calendar'
     ]);
     app.constant('SERVER', {
       URL: 'https://ancient-sea-7341.herokuapp.com/',

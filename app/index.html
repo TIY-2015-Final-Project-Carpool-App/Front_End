@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="css/vendor/normalize.css">
   <link rel="stylesheet" href="css/vendor/angular-material.css">
   <link rel="stylesheet" href="css/vendor/fullcalendar.css"/>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="myApp">
@@ -18,7 +19,7 @@
   <a ui-sref="editInfo">Edit User Info</a> |
   <a ui-sref="logoutUser" ng-click="logoutUser()">Sign Out</a>
 </div>
-  
+
 
   <div ui-view>
 
@@ -43,6 +44,7 @@
   <script src="js/vendor/angular.js"></script>
   <script src="js/vendor/calendar.js"></script>
   <script src="js/vendor/fullcalendar.js"></script>
+  <script src="js/vendor/gcal.js"></script>
   <script src="js/vendor/angular-ui-router.js"></script>
   <script src="js/vendor/angular-cookies.js"></script>
   <script src="js/vendor/angular-animate.js"></script>
@@ -59,7 +61,7 @@
   <!-- Dashboard -->
   <script src="js/routes/dashboard/dashboard.controller.js"></script>
   <script src="js/routes/dashboard/dashboard.service.js"></script>
-
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
   <!-- Medical Info -->
   <script src="js/routes/medinfo/medinfo.controller.js"></script>
   <!-- Profile -->

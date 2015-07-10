@@ -1,3 +1,13 @@
 This is the Dashboard
+<div class="appcalendar">
+  <div ui-calendar="uiConfig.calendar" ng-model="eventSources">
+</div>
 
-<div ui-calendar="uiConfig.calendar" class="span8 calendar" ng-model="eventSources"></div>
+<div class="calendarInfoField">
+
+</div>
+
+
+<div class="map">
+  <div id="map" style="height: 610px; width:100%" ng-controller="DashboardCtrl"></div>
+</div>
