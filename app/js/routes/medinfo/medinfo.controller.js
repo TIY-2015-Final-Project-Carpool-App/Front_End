@@ -3,11 +3,15 @@
 
   angular.module('myApp')
 
-  .controller('MedInfoCtrl', ['$scope', '$http', '$state',
-   function($scope, $http, $state){
+  .controller('MedInfoCtrl', ['$scope', '$http', '$state', 'RegService',
+   function($scope, $http, $state, RegService){
 
-     console.log('This is the MedInfoCtrl');
 
+    $scope.userMedInfo = function(x, y) {
+      console.log(x);
+      console.log(y);
+      //RegService.userMedInfo(x,y);
+    };
 
     }
   ]);

@@ -14,11 +14,11 @@
        console.log('here');
           RegService.logoutUser();
        };
-     $scope.homeCheckLogin = function (user) {
-          RegService.homeCheckLogin(user);
+     $scope.loginTrue = function (user) {
+          RegService.loginTrue(user);
        };
-     $scope.checkLogin = function (user) {
-          RegService.checkLogin(user);
+     $scope.loginFalse = function (user) {
+          RegService.loginFalse(user);
        };
     }
   ]);

@@ -9,7 +9,9 @@
      $scope.addUser = function (user) {
           RegService.addUser(user);
         };
-
+     $scope.updateConfig = function (token) {
+          RegService.updateConfig(token);
+     };
    }
   ]);
 }());

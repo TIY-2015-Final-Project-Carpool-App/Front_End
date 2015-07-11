@@ -10,10 +10,11 @@
 
         var isLoggedIn;
 
-        // Update headers with access token
-        var _updateConfig = function (user) {
-          SERVER.CONFIG.headers['Access-Token'] = user.access_token;
+        var getUserInfo = function () {
+          return $cookies.getObject('currentUser');
         };
+
+
 
         //Add User to SERVER and add new cookies
         this.addUser = function (user) {
@@ -21,6 +22,7 @@
             $http.post(endpoint + '/users', user).success( function(data) {
             // console.log(data);
             $cookies.put('access_token', data.user.access_token);
+            updateConfig(data.user);
             $state.go('login');
           });
         };
@@ -32,8 +34,15 @@
           // console.log(data);
           $cookies.put('access_token', data.user.access_token);
           $cookies.putObject('currentUser', data.user);
+          updateConfig(data.user);
           $state.go('dashboard');
           });
+        };
+
+        // Update headers with access token
+        var updateConfig = function (user) {
+          console.log(user);
+          SERVER.CONFIG.headers['Access-Token'] = user.access_token;
         };
 
         // Log out user and remove all cookies
@@ -45,7 +54,7 @@
         };
 
         // If visitor routes to login page and is logged in, route to dashboard
-        this.homeCheckLogin = function () {
+        this.loginTrue = function () {
           isLoggedIn = $cookies.get('access_token') !== undefined;
           if (isLoggedIn) {
             $state.go('dashboard');
@@ -53,12 +62,38 @@
         };
 
         // If user is not logged in and tries to navigate inside app, routes home
-        this.checkLogin = function () {
+        this.loginFalse = function () {
           isLoggedIn = $cookies.get('access_token') !== undefined;
           if (isLoggedIn !== true) {
             $state.go('login');
           }
         };
+
+        // Child Registration Setup startpoint
+
+        //Route Medical Info and Emergency Contact Info to each endpoint then update currentUser cookies
+        this.userMedInfo =  function (x,y) {
+
+          // In this file - build a function to get the current user object (or get it from the cookie yourself)
+          // Grab the ID out of the user object
+          // Build your URL .... '/child/' + obj.id + '/medical'
+
+          var user = getUserInfo();
+          var id = user.id;
+
+          $http.post(endpoint + '/child/'+id+'/medical', x);
+          // console.log(x.data);
+          $http.post(endpoint + '/child/'+id+'/contacts', y)
+          // console.log(y.data);
+               .success(function (data) {
+                 $cookies.putObject('currentUser', data.user);
+                 $state.go('dashboard');
+          });
+        };
+
+
+        // Child Registration Setup endpoint
+
       }
     ]);
 }());

@@ -4,29 +4,29 @@ This is the Medical Information Page
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Allergies and Reactions</label>
-    <input ng-model="user.allergyReactions">
+    <input ng-model="x.allergyReactions">
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Medical Conditions</label>
-    <input ng-model="user.medConditions">
+    <input ng-model="x.medConditions">
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Medications</label>
-    <input ng-model="user.medication">
+    <input ng-model="x.medication">
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Insurance Company (Optional)</label>
-      <input ng-model="user.insuranceCo">
+      <input ng-model="x.insuranceCo">
     </md-input-container>
     <md-input-container flex>
       <label>Religious Preference (Optional)</label>
-      <input ng-model="user.religion">
+      <input ng-model="x.religion">
     </md-input-container>
   </div>
 
@@ -35,53 +35,38 @@ This is the Medical Information Page
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>First name</label>
-      <input ng-model="user.firstName">
+      <input ng-model="y.firstName">
     </md-input-container>
     <md-input-container flex>
       <label>Last Name</label>
-      <input ng-model="user.lastName">
+      <input ng-model="y.lastName">
     </md-input-container>
     <md-input-container flex>
       <label>Relationship</label>
-      <input ng-model="user.lastName">
+      <input ng-model="y.lastName">
     </md-input-container>
   </div>
 
   <md-input-container flex>
     <label>Address</label>
-  <input ng-model="user.address">
+  <input ng-model="y.address">
   </md-input-container>
 
   <div layout layout-sm="column">
     <md-input-container flex>
-      <label>City</label>
-      <input ng-model="user.city">
-    </md-input-container>
-    <md-input-container flex>
-      <label>State</label>
-      <input ng-model="user.state">
-    </md-input-container>
-    <md-input-container flex>
-      <label>Postal Code</label>
-      <input ng-model="user.postalCode">
-    </md-input-container>
-  </div>
-
-  <div layout layout-sm="column">
-    <md-input-container flex>
       <label>Phone Number</label>
-      <input ng-model="user.phonenumber">
+      <input ng-model="y.phonenumber">
     </md-input-container>
     <md-input-container flex>
       <label>Alternate Phone Number (Optional)</label>
-      <input ng-model="user.altPhoneNumber">
+      <input ng-model="y.altPhoneNumber">
     </md-input-container>
   </div>
 
   <!-- add a button to render another emergency contact form -->
 
   <section layout="row" layout-sm="column" layout-align="center center">
-    <md-button class="md-raised">Submit</md-button>
+    <md-button class="md-raised" ng-click="userMedInfo(x,y)">Submit</md-button>
   </section>
 
 </md-content>

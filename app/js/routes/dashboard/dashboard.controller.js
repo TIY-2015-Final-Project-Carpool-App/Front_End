@@ -39,14 +39,14 @@
 
 // Map Code Starts Here
 
-     var map = L.map('map').setView([33.7550, -84.3900], 9);
-
-     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmhrdGtzaG4iLCJhIjoiYzI2ODZmYzcyZWM3ZjFiN2UyZDUyMGY5NTY3MGIxYmQifQ.Pqgu-9-i0rdp3DAPA8E9Bg', {
-        attribution  : 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-        maxZoom      : 18,
-        id           : 'bhktkshn.9df1076c',
-        accessToken  : 'your.mapbox.public.access.token'
-    }).addTo(map);
+    //  var map = L.map('map').setView([33.7550, -84.3900], 9);
+    //
+    //  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYmhrdGtzaG4iLCJhIjoiYzI2ODZmYzcyZWM3ZjFiN2UyZDUyMGY5NTY3MGIxYmQifQ.Pqgu-9-i0rdp3DAPA8E9Bg', {
+    //     attribution  : 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    //     maxZoom      : 18,
+    //     id           : 'bhktkshn.9df1076c',
+    //     accessToken  : 'your.mapbox.public.access.token'
+    // }).addTo(map);
 
         // GET MAP DATA
     var data = [
