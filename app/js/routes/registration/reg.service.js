@@ -70,6 +70,20 @@
         };
 
         // Child Registration Setup startpoint
+        this.userChildReg = function (child) {
+          $http.post(endpoint +'/children', child)
+          .success(function (data) {
+            $cookies.putObject('currentUser', data.user);
+            $state.go('dashboard');
+          });
+        };
+
+
+
+        // Child Registration Setup endpoint
+
+
+// Medical Info and Emergency Contact Setup startpoint
 
         //Route Medical Info and Emergency Contact Info to each endpoint then update currentUser cookies
         this.userMedInfo =  function (x,y) {
@@ -82,17 +96,14 @@
           var id = user.id;
 
           $http.post(endpoint + '/child/'+id+'/medical', x);
-          // console.log(x.data);
           $http.post(endpoint + '/child/'+id+'/contacts', y)
-          // console.log(y.data);
                .success(function (data) {
                  $cookies.putObject('currentUser', data.user);
                  $state.go('dashboard');
           });
         };
+// Medical Info and Emergency Contact Setup endpoint
 
-
-        // Child Registration Setup endpoint
 
       }
     ]);

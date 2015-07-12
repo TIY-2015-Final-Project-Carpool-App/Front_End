@@ -4,46 +4,56 @@ This is the Medical Information Page
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Allergies and Reactions</label>
-    <input ng-model="x.allergyReactions">
+    <input ng-model="x.allergies">
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Medical Conditions</label>
-    <input ng-model="x.medConditions">
+    <input ng-model="x.conditions">
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
-      <label>Medications</label>
-    <input ng-model="x.medication">
+      <label>Medications </label>
+      <input ng-model="x.medications">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Blood Type </label>
+      <input ng-model="x.blood_type">
+    </md-input-container>
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
-      <label>Insurance Company (Optional)</label>
-      <input ng-model="x.insuranceCo">
+      <label>Insurance Company </label>
+      <input ng-model="x.insurance">
     </md-input-container>
     <md-input-container flex>
-      <label>Religious Preference (Optional)</label>
-      <input ng-model="x.religion">
+      <label>Religious Preference </label>
+      <input ng-model="x.religious_preference">
     </md-input-container>
   </div>
+  <md-input-container flex>
+     <label>Additional Information</label>
+     <textarea ng-model="user.notes" columns="1" md-maxlength="250"></textarea>
+  </md-input-container>
+
 
   <h3>Emergency Contact Information</h3>
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>First name</label>
-      <input ng-model="y.firstName">
+      <input ng-model="y.first_name">
     </md-input-container>
     <md-input-container flex>
       <label>Last Name</label>
-      <input ng-model="y.lastName">
+      <input ng-model="y.last_name">
     </md-input-container>
     <md-input-container flex>
       <label>Relationship</label>
-      <input ng-model="y.lastName">
+      <input ng-model="y.relationship">
     </md-input-container>
   </div>
 
@@ -55,13 +65,14 @@ This is the Medical Information Page
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Phone Number</label>
-      <input ng-model="y.phonenumber">
+      <input ng-model="y.phone_number">
     </md-input-container>
     <md-input-container flex>
       <label>Alternate Phone Number (Optional)</label>
-      <input ng-model="y.altPhoneNumber">
+      <input ng-model="y.alternate_number">
     </md-input-container>
   </div>
+
 
   <!-- add a button to render another emergency contact form -->
 

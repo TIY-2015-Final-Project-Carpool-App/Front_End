@@ -11,7 +11,11 @@
         };
      $scope.updateConfig = function (token) {
           RegService.updateConfig(token);
-     };
+        };
+     $scope.userChildReg = function(child) {
+       console.log(child);
+         RegService.userChildReg(child);
+       };
    }
   ]);
 }());

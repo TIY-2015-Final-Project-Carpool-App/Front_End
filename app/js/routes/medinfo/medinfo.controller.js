@@ -10,7 +10,7 @@
     $scope.userMedInfo = function(x, y) {
       console.log(x);
       console.log(y);
-      //RegService.userMedInfo(x,y);
+      RegService.userMedInfo(x,y);
     };
 
     }

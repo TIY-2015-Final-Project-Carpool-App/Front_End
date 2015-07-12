@@ -4,44 +4,48 @@ This is the Registration Page for Child by Parent/Guardian
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>First name</label>
-      <input ng-model="user.firstName">
+      <input ng-model="child.first_name">
     </md-input-container>
     <md-input-container flex>
       <label>Last Name</label>
-      <input ng-model="user.lastName">
+      <input ng-model="child.last_name">
     </md-input-container>
   </div>
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Age</label>
-      <input ng-model="user.age">
+      <input ng-model="child.age">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Date of Birth (DD/MM/YYYY )</label>
+      <input ng-model="child.dob">
     </md-input-container>
     <md-input-container flex>
       <label>Height in inches</label>
-      <input ng-model="user.height">
+      <input ng-model="child.height">
     </md-input-container>
     <md-input-container flex>
       <label>Weight in lbs</label>
-      <input ng-model="user.weight">
+      <input ng-model="child.weight">
     </md-input-container>
   </div>
 
   <md-input-container flex>
-    <label>Address</label>
-  <input ng-model="user.address" placeholder="Address, City, State and Postal Code">
+    <label>Address, City, State and Postal Code</label>
+  <input ng-model="child.address">
   </md-input-container>
 
 
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>Phone Number</label>
-      <input ng-model="user.phonenumber">
+      <input ng-model="child.phone_number">
     </md-input-container>
   </div>
 
   <section layout="row" layout-sm="column" layout-align="center center">
-    <md-button class="md-raised">Submit</md-button>
+    <md-button class="md-raised" ng-click="userChildReg(child)">Submit</md-button>
   </section>
 
   <a ui-sref="medInfo">Add Medical Information Here (Optional)</a>
