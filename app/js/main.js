@@ -21,6 +21,9 @@
     function ($stateProvider, $urlRouterProvider) {
       // $urlRouterProvider.otherwise('/');
       $stateProvider
+      //==============================
+      // Registration and Login Views
+      //==============================
 
         .state('login', {
           url: '/',
@@ -47,11 +50,32 @@
           templateUrl:'js/routes/medinfo/medinfo.tpl.html',
           controller:'MedInfoCtrl'
         })
+
+        //====================================
+        // Registration and Login Views Ends
+        //====================================
+
+
+        //================
+        // Dashboard
+        //================
+
         .state('dashboard', {
           url: '/dashboard',
           templateUrl:'js/routes/dashboard/dashboard.tpl.html',
           controller:'DashboardCtrl'
         })
+        .state('dashboard.childinfo', {
+          url: '/dashboard/child',
+          templateUrl:'js/routes/dashboard/childinfopage.tpl.html',
+          controller:'DashboardCtrl'
+        })
+
+        //=================
+        // Dashboard Ends
+        //=================
+
+
         .state('editInfo', {
           url: '/edituserinfo',
           templateUrl:'js/routes/profile/editprofile.tpl.html',

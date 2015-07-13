@@ -9,6 +9,7 @@
         var endpoint = SERVER.URL;
 
         var getUserInfo = function () {
+          console.log('currentuser', $cookies.getObject('currentUser'));
           return $cookies.getObject('currentUser');
         };
 
@@ -33,6 +34,15 @@
         };
 
 
+        this.appendChildInfo = function (child) {
+          $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
+
+          var user = getUserInfo();
+          var username = user.username;
+
+          //user/:username/children
+          return $http.get(endpoint + '/user/'+username+'/children');
+        };
 
 
       }

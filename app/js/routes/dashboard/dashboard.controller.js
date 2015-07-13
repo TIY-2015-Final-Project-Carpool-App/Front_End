@@ -26,14 +26,19 @@
 //          }
 //        };
 //
+
+
+  // Add all events needed on calendar in this Array
+  //      $scope.eventSource = [{
+  //        events     : $scope.events,
+  //        color      :'purple',
+  //        textColor  :'white'
+  //      }];
+
+
 // //  Calendar Code Ends Here
 //
-//     // Add all events needed on calendar in this Array
-//      $scope.eventSource = [{
-//        events     : $scope.events,
-//        color      :'purple',
-//        textColor  :'white'
-//      }];
+//
 //
 //
 //
@@ -81,6 +86,17 @@
 //         }
 //
 //  //Map Code Ends Here
+
+
+//Child Info Content
+        ChildInfoService.appendChildInfo().success( function(data) {
+          console.log(data);
+          $scope.children = data;
+        });
+
+//Child Info Content Ends
+
+
    }
   ]);
 }());
