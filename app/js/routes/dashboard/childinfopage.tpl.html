@@ -13,10 +13,14 @@
       </ul>
       </md-card-content>
       <div class="md-actions" layout="row" layout-align="end center">
-        <md-button ui-sref="medInfo">Add Medical Information</md-button>
-        <md-button ui-sref="editChildMed">Edit Medical Information</md-button>
-        <md-button ui-sref="updateChildReg">Edit Child's Information</md-button>
+        <md-button ui-sref-opts="medInfo">Add Medical Information</md-button>
+        <md-button ui-sref-opts="editChildMed">Edit Medical Information</md-button>
+        <md-button ui-sref-opts="updateChildReg">Edit Child's Information</md-button>
       </div>
     </md-card>
   </md-content>
 </div>
+
+
+<!-- Change all the ui-sref-opts to include an object in it -->
+<!-- http://angular-ui.github.io/ui-router/site/#/api/ui.router.state.directive:ui-sref -->
