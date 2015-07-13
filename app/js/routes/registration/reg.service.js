@@ -93,7 +93,7 @@
         // If user is not logged in and tries to navigate to dashboard inside app, routes home
         this.loginFalse = function () {
           var user = $cookies.get('access_token') !== undefined;
-          if (!user && !$state.includes('dashboard')) {
+          if (!user && !$state.includes('reg')) {
             $state.go('login');
           }
         };
@@ -102,6 +102,7 @@
 // Child Registration Setup startpoint
         this.userChildReg = function (child) {
           var x = new Child (child);
+          $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
           $http.post(endpoint + '/children', child)
           .success(function (data) {
             $cookies.putObject('currentUser', data.user);
@@ -125,7 +126,9 @@
 
           var user = getUserInfo();
           var id = user.id;
+          console.log(user);
 
+          $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
           $http.post(endpoint + '/child/'+id+'/medical', x);
           $http.post(endpoint + '/child/'+id+'/contacts', y)
                .success(function (data) {

@@ -26,6 +26,7 @@
        console.log('not logged in');
           RegService.loginFalse();
        };
+
     }
   ]);
 }());

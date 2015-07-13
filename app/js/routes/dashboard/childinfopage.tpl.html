@@ -1,0 +1,27 @@
+<div ng-controller="DashboardCtrl">
+  <md-content class="md-padding">
+    <md-card>
+      <md-card-content>
+        <h2 class="md-title">{{ child.first_name + '' + child.last_name }}</h2>
+      <ul>
+        <li>{{ child.age }}</li>
+        <li>{{ child.dob }}</li>
+        <li>{{ child.height }}</li>
+        <li>{{ child.weight }}</li>
+        <li>{{ child.address }}</li>
+        <li>{{ child.phone_number }}</li>
+      </ul>
+      </md-card-content>
+      <div class="md-actions" layout="row" layout-align="end center">
+        <md-button ng-click="addChildMed()">Add Medical Information</md-button>
+        <md-button ng-click="editChildMed()">Edit Medical Information</md-button>
+        <md-button ng-click="editChildReg">Edit Child's Information</md-button>
+      </div>
+    </md-card>
+  </md-content>
+</div>
+
+
+<!-- [#<Child id: 13, first_name: "Kid", last_name: "Bauce", age: nil, dob: nil, address: nil, phone_number: nil, height: nil, weight: nil, created_at: "2015-07-13 13:02:00", updated_at: "2015-07-13 13:02:00", user_id: 23>,
+ #<Child id: 14, first_name: "Meade", last_name: "Slocomb", age: 31, dob: "1984-04-13", address: "Bauce Street", phone_number: "6785559876", height: 72, weight: 201, created_at: "2015-07-13 14:43:22", updated_at: "2015-07-13 14:43:22", user_id: 23>,
+ #<Child id: 18, first_name: "Bob", last_name: "Builder", age: 15, dob: "2000-09-09", address: "3212312", phone_number: "3216540987", height: 65, weight: 215, created_at: "2015-07-13 16:23:54", updated_at: "2015-07-13 16:23:54", user_id: 23>] -->

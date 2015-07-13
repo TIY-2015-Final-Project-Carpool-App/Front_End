@@ -10,7 +10,7 @@
       'ui.calendar'
     ]);
     app.constant('SERVER', {
-      URL: 'https://ancient-sea-7341.herokuapp.com/',
+      URL: 'https://ancient-sea-7341.herokuapp.com',
       CONFIG: {
         headers:{
           'Access-Token' : ''
@@ -43,7 +43,7 @@
           controller: 'RegCtrl'
         })
         .state('medInfo', {
-          url: '/medinfo',
+          url: '/medinfo/:childId',
           templateUrl:'js/routes/medinfo/medinfo.tpl.html',
           controller:'MedInfoCtrl'
         })
