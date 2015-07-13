@@ -11,14 +11,20 @@
        };
 
      $scope.logoutUser = function () {
-       console.log('here');
+       console.log('logged out');
           RegService.logoutUser();
        };
-     $scope.loginTrue = function (user) {
-          RegService.loginTrue(user);
+
+     $scope.statusCheck = function () {
+          RegService.statusCheck();
        };
-     $scope.loginFalse = function (user) {
-          RegService.loginFalse(user);
+     $scope.loginTrue = function () {
+       console.log('logged in');
+          RegService.loginTrue();
+       };
+     $scope.loginFalse = function () {
+       console.log('not logged in');
+          RegService.loginFalse();
        };
     }
   ]);

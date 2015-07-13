@@ -22,6 +22,13 @@ This is the Registration Page for Child by Parent/Guardian
       <input ng-model="child.dob">
     </md-input-container>
     <md-input-container flex>
+      <label>Blood Type</label>
+      <input ng-model="child.blood_type">
+    </md-input-container>
+  </div>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
       <label>Height in inches</label>
       <input ng-model="child.height">
     </md-input-container>
@@ -31,13 +38,11 @@ This is the Registration Page for Child by Parent/Guardian
     </md-input-container>
   </div>
 
-  <md-input-container flex>
-    <label>Address, City, State and Postal Code</label>
-  <input ng-model="child.address">
-  </md-input-container>
-
-
   <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Address, City, State and Postal Code</label>
+      <input ng-model="child.address">
+    </md-input-container>
     <md-input-container flex>
       <label>Phone Number</label>
       <input ng-model="child.phone_number">

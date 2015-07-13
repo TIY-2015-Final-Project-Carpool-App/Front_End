@@ -8,19 +8,45 @@
 
         var endpoint = SERVER.URL;
 
-        var isLoggedIn;
-
         var getUserInfo = function () {
           return $cookies.getObject('currentUser');
         };
 
+        //User Constructor
+        var User = function (options) {
+          this.email = options.email;
+          this.password = options.password;
+          this.username = options.username;
+          this.first_name = options.first_name;
+          this.last_name = options.last_name;
+          this.address = options.address;
+          this.phone_number = options.phone_number;
+        };
+
+        //Child User Constructor
+        var Child = function (options) {
+          this.age = options.age;
+          this.dob = options.dob;
+          this.blood_type = options.blood_type;
+          this.first_name = options.first_name;
+          this.last_name = options.last_name;
+          this.address = options.address;
+          this.phone_number = options.phone_number;
+          this.height = options.height;
+          this.weight = options.weight;
+        };
+
+        // Update headers with access token
+        var updateConfig = function (user) {
+          console.log(user);
+          SERVER.CONFIG.headers['Access-Token'] = user.access_token;
+        };
 
 
         //Add User to SERVER and add new cookies
         this.addUser = function (user) {
-            // console.log(user);
+            var x = new User(user);
             $http.post(endpoint + '/users', user).success( function(data) {
-            // console.log(data);
             $cookies.put('access_token', data.user.access_token);
             updateConfig(data.user);
             $state.go('login');
@@ -39,39 +65,44 @@
           });
         };
 
-        // Update headers with access token
-        var updateConfig = function (user) {
-          console.log(user);
-          SERVER.CONFIG.headers['Access-Token'] = user.access_token;
-        };
 
         // Log out user and remove all cookies
         this.logoutUser = function (user) {
           $cookies.remove('access_token');
           $cookies.remove('currentUser');
           SERVER.CONFIG.headers['Access-Token'] = '';
-          $state.go('login');
+          $state.reload();
         };
 
-        // If visitor routes to login page and is logged in, route to dashboard
-        this.loginTrue = function () {
-          isLoggedIn = $cookies.get('access_token') !== undefined;
-          if (isLoggedIn) {
+        //Status Check, if user routes to login page and is logged in, route to dashboard
+        this.statusCheck = function () {
+          var user = $cookies.get('access_token') !==undefined;
+          if (user){
+            console.log('In if statement');
             $state.go('dashboard');
           }
         };
 
-        // If user is not logged in and tries to navigate inside app, routes home
+        // User is logged in
+        this.loginTrue = function () {
+          var user = $cookies.get('access_token');
+          console.log('User is Logged In');
+          return (user !== undefined) ? true : false;
+        };
+
+        // If user is not logged in and tries to navigate to dashboard inside app, routes home
         this.loginFalse = function () {
-          isLoggedIn = $cookies.get('access_token') !== undefined;
-          if (isLoggedIn !== true) {
+          var user = $cookies.get('access_token') !== undefined;
+          if (!user && !$state.includes('dashboard')) {
             $state.go('login');
           }
         };
 
-        // Child Registration Setup startpoint
+
+// Child Registration Setup startpoint
         this.userChildReg = function (child) {
-          $http.post(endpoint +'/children', child)
+          var x = new Child (child);
+          $http.post(endpoint + '/children', child)
           .success(function (data) {
             $cookies.putObject('currentUser', data.user);
             $state.go('dashboard');
@@ -80,7 +111,7 @@
 
 
 
-        // Child Registration Setup endpoint
+// Child Registration Setup endpoint
 
 
 // Medical Info and Emergency Contact Setup startpoint
@@ -102,9 +133,15 @@
                  $state.go('dashboard');
           });
         };
-// Medical Info and Emergency Contact Setup endpoint
 
+// Medical Info and Emergency Contact Setup endpoint
 
       }
     ]);
 }());
+
+
+
+// $cookies.put('access_token', data.user.access_token);
+// $cookies.putObject('currentUser', data.user);
+// updateConfig(data.user); //Added this to see if it works
