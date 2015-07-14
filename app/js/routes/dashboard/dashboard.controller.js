@@ -89,6 +89,7 @@
 
 
 //Child Info Content
+
         ChildInfoService.appendChildInfo().success( function(data) {
           console.log(data);
           $scope.children = data;

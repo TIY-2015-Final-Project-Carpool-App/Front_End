@@ -3,8 +3,8 @@
   'use strict';
 
   angular.module('myApp')
-    .service('ChildInfoService', ['SERVER', '$http', '$cookies', '$state',
-      function (SERVER, $http, $cookies, $state) {
+    .service('ChildInfoService', ['SERVER', '$http', '$cookies', '$state', '$rootScope',
+      function (SERVER, $http, $cookies, $state, $rootScope) {
 
         var endpoint = SERVER.URL;
 
@@ -33,7 +33,7 @@
           SERVER.CONFIG.headers['Access-Token'] = user.access_token;
         };
 
-
+        //Get User Child Object
         this.appendChildInfo = function (child) {
           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
 
@@ -43,6 +43,7 @@
           //user/:username/children
           return $http.get(endpoint + '/user/'+username+'/children');
         };
+
 
 
       }
