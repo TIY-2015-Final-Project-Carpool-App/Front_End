@@ -89,11 +89,12 @@
 
 
 //Child Info Content
-
+        //Call the Method to get all of the currentUser's Children
         ChildInfoService.appendChildInfo().success( function(data) {
           console.log(data);
           $scope.children = data;
         });
+
 
 //Child Info Content Ends
 

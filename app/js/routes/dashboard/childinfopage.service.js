@@ -41,7 +41,9 @@
           var username = user.username;
 
           //user/:username/children
-          return $http.get(endpoint + '/user/'+username+'/children');
+          return $http.get(endpoint + '/user/'+username+'/children').success( function(data) {
+            //$rootScope.$broadcast('ChildrenInfo', data);
+          });
         };
 
 
