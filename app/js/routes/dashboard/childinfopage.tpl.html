@@ -1,22 +1,41 @@
-<div ng-controller="DashboardCtrl">
+<div id="userchildinfo" ng-controller="DashboardCtrl">
   <md-content class="md-padding">
     <md-card ng-repeat="child in children">
       <md-card-content>
-        <h2 class="md-title">{{ child.first_name + '' + child.last_name }}</h2>
-      <ul>
-        <li>{{ child.age }}</li>
-        <li>{{ child.dob }}</li>
-        <li>{{ child.height }}</li>
-        <li>{{ child.weight }}</li>
-        <li>{{ child.address }}</li>
-        <li>{{ child.phone_number }}</li>
-      </ul>
+
+        <h2> {{ child.first_name + ' ' + child.last_name }}'s Information Card</h2>
+          <ul>
+            <li>{{ 'age :' + ' ' + child.age }}</li>
+            <li>{{ 'date of birth :' + ' ' + child.dob }}</li>
+            <li>{{ 'height :' + ' ' + child.height }}</li>
+            <li>{{ 'weight :' + ' ' + child.weight }}</li>
+            <li>{{ 'address :' + ' ' + child.address }}</li>
+            <li>{{ 'phone number :' + ' ' + child.phone_number }}</li>
+          </ul>
+
+        <h4>{{ child.first_name + ' ' + child.last_name }}'s Medical Information</h4>
+        <h4 class="md-title">{{ child.first_name + ' ' + child.last_name }}</h4>
+          <ul>
+            <li>{{ 'age :' + ' ' + child.age }}</li>
+            <li>{{ 'date of birth :' + ' ' + child.dob }}</li>
+            <li>{{ 'height :' + ' ' + child.height }}</li>
+            <li>{{ 'weight :' + ' ' + child.weight }}</li>
+            <li>{{ 'address :' + ' ' + child.address }}</li>
+            <li>{{ 'phone number :' + ' ' + child.phone_number }}</li>
+          </ul>
+
+        <h4>{{ child.first_name + ' ' + child.last_name }}'s Emergency Contact Information</h4>
+        <h4 class="md-title">{{ child.first_name + ' ' + child.last_name }}</h4>
+          <ul>
+            <li>{{ 'age :' + ' ' + child.age }}</li>
+            <li>{{ 'date of birth :' + ' ' + child.dob }}</li>
+            <li>{{ 'height :' + ' ' + child.height }}</li>
+            <li>{{ 'weight :' + ' ' + child.weight }}</li>
+            <li>{{ 'address :' + ' ' + child.address }}</li>
+            <li>{{ 'phone number :' + ' ' + child.phone_number }}</li>
+          </ul>
+
       </md-card-content>
-      <div class="md-actions" layout="row" layout-align="end center">
-        <md-button ui-sref-opts="medInfo">Add Medical Information</md-button>
-        <md-button ui-sref-opts="editChildMed">Edit Medical Information</md-button>
-        <md-button ui-sref-opts="updateChildReg">Edit Child's Information</md-button>
-      </div>
     </md-card>
   </md-content>
 </div>

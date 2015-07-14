@@ -21,6 +21,7 @@
           this.last_name = options.last_name;
           this.address = options.address;
           this.phone_number = options.phone_number;
+
         };
 
         //Child User Constructor
@@ -34,6 +35,16 @@
           this.phone_number = options.phone_number;
           this.height = options.height;
           this.weight = options.weight;
+          this.allergies = options.allergies;
+          this.conditions = options.conditions;
+          this.medications = options.medications;
+          this.blood_type = options.blood_type;
+          this.insurance = options.insurance;
+          this.religious_preference = options.religious_preference;
+          this.notes = options.notes;
+          this.relationship = options.relationship;
+          this.alternate_number = options.alternate_number;
+
         };
 
         // Update headers with access token
@@ -100,14 +111,52 @@
 
 
 // Child Registration Setup startpoint
-        this.userChildReg = function (child) {
-          var x = new Child (child);
+        this.userChildReg = function (x,y,child) {
+
+
+
+
+          var kid = new Child (x,y,child);
           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
-          $http.post(endpoint + '/children', child)
-          .success(function (data) {
-            $cookies.putObject('currentUser', data.user);
-            $state.go('dashboard');
+          console.log(kid);
+          console.log('about to post to /children');
+          $http.post(endpoint + '/children', child).success(function (data) {
+            console.log('posted to /children and got back', data);
+            console.log('setting currentUser to', data);
+            $cookies.putObject('currentUser', data);
+            // $state.go('dashboard');
+
+            console.log('getting currentUser');
+            var user = getUserInfo();
+            console.log('user is', user);
+            var id = user.id;
+            console.log('about to post to', endpoint + '/child/'+id+'/medical', 'and send:', x);
+            $http.post(endpoint + '/child/'+id+'/medical', x);
+            console.log('about to post to', endpoint + '/child/'+id+'/contacts', 'and send:', y);
+            $http.post(endpoint + '/child/'+id+'/contacts', y)
+            .success(function (data) { //took out data from parameters
+              $cookies.putObject('currentUser', data);
+              $state.go('dashboard');
+            });
+
           });
+
+
+
+
+          // $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
+          // var user = getUserInfo();
+          // var id = user.id;
+          // $http.post(endpoint + '/child/'+id+'/medical', x);
+          // $http.post(endpoint + '/child/'+id+'/contacts', y)
+          // .success(function (data) {
+          //   $cookies.putObject('currentUser', data.user);
+          //   $state.go('dashboard');
+          // });
+
+
+
+
         };
 
 
@@ -115,29 +164,7 @@
 // Child Registration Setup endpoint
 
 
-// Medical Info and Emergency Contact Setup startpoint
 
-        //Route Medical Info and Emergency Contact Info to each endpoint then update currentUser cookies
-        this.userMedInfo =  function (x,y) {
-
-          // In this file - build a function to get the current user object (or get it from the cookie yourself)
-          // Grab the ID out of the user object
-          // Build your URL .... '/child/' + obj.id + '/medical'
-
-          var user = getUserInfo();
-          var id = user.id;
-          console.log(user);
-
-          $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
-          $http.post(endpoint + '/child/'+id+'/medical', x);
-          $http.post(endpoint + '/child/'+id+'/contacts', y)
-               .success(function (data) {
-                 $cookies.putObject('currentUser', data.user);
-                 $state.go('dashboard');
-          });
-        };
-
-// Medical Info and Emergency Contact Setup endpoint
 
       }
     ]);

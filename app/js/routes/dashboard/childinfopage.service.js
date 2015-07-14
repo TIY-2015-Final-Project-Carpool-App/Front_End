@@ -33,19 +33,67 @@
           SERVER.CONFIG.headers['Access-Token'] = user.access_token;
         };
 
-        //Get User Child Object
-        this.appendChildInfo = function (child) {
-          $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
 
-          var user = getUserInfo();
-          var username = user.username;
 
-          //user/:username/children
-          return $http.get(endpoint + '/user/'+username+'/children').success( function(data) {
-            //$rootScope.$broadcast('ChildrenInfo', data);
-          });
-        };
+        // //Get User Child Object
+        // this.appendChildInfo = function (x,y,child) {
+        //   $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
 
+        //   var user = getUserInfo();
+        //   console.log('what is user?', user);
+        //   var username = user.username;
+
+        //   //user/:username/children
+        //   return $http.get(endpoint + '/user/'+username+'/children').success( function(data) {
+
+        //   });
+        // };
+
+
+
+// // Medical Info and Emergency Contact Setup startpoint
+//           // Add Child's Medical Info
+
+//         //Route Medical Info and Emergency Contact Info to each endpoint then update currentUser cookies
+//         this.userMedInfo =  function (x,y) {
+
+//           // In this file - build a function to get the current user object (or get it from the cookie yourself)
+//           // Grab the ID out of the user object
+//           // Build your URL .... '/child/' + obj.id + '/medical'
+
+//           var user = getUserInfo();
+//           var id = user.id;
+//           console.log(user);
+
+//           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
+//           $http.post(endpoint + '/child/'+id+'/medical', x);
+//           $http.post(endpoint + '/child/'+id+'/contacts', y)
+//                .success(function (data) {
+//                  $cookies.putObject('currentUser', data.user);
+//                  $state.go('dashboard');
+//           });
+//         };
+
+//         //Edit Child's Medical Infomation
+
+//         this.editChildMedInfo = function (x,y) {
+
+//           var user = getUserInfo();
+//           var id = user.id;
+//           console.log(user);
+
+//           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
+//           $http.put(endpoint + '/child/'+id+'/medical', x);
+//           $http.put(endpoint + '/child/'+id+'/contacts', y)
+//                .success(function (data) {
+//                  $cookies.putObject('currentUser', data.user);
+//                  $state.go('dashboard');
+//           });
+
+
+//         };
+
+// // Medical Info and Emergency Contact Setup endpoint
 
 
       }

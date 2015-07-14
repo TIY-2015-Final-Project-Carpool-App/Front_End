@@ -1,6 +1,7 @@
 This is the Registration Page for Child by Parent/Guardian
-
 <md-content>
+<h2>Child Registration</h2>
+
   <div layout layout-sm="column">
     <md-input-container flex>
       <label>First name</label>
@@ -20,10 +21,6 @@ This is the Registration Page for Child by Parent/Guardian
     <md-input-container flex>
       <label>Date of Birth (DD/MM/YYYY )</label>
       <input ng-model="child.dob">
-    </md-input-container>
-    <md-input-container flex>
-      <label>Blood Type</label>
-      <input ng-model="child.blood_type">
     </md-input-container>
   </div>
 
@@ -49,12 +46,86 @@ This is the Registration Page for Child by Parent/Guardian
     </md-input-container>
   </div>
 
+<h2>Child's Medical Information (optional)</h2>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Allergies and Reactions</label>
+    <input ng-model="x.allergies">
+  </div>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Medical Conditions</label>
+    <input ng-model="x.conditions">
+  </div>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Medications </label>
+      <input ng-model="x.medications">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Blood Type </label>
+      <input ng-model="x.blood_type">
+    </md-input-container>
+  </div>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Insurance Company </label>
+      <input ng-model="x.insurance">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Religious Preference </label>
+      <input ng-model="x.religious_preference">
+    </md-input-container>
+  </div>
+  <md-input-container flex>
+     <label>Additional Information</label>
+     <textarea ng-model="x.notes" columns="1" md-maxlength="250"></textarea>
+  </md-input-container>
+
+
+  <h2>Emergency Contact Information for Child</h2>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>First name</label>
+      <input ng-model="y.first_name">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Last Name</label>
+      <input ng-model="y.last_name">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Relationship</label>
+      <input ng-model="y.relationship">
+    </md-input-container>
+  </div>
+
+  <md-input-container flex>
+    <label>Address</label>
+  <input ng-model="y.address">
+  </md-input-container>
+
+  <div layout layout-sm="column">
+    <md-input-container flex>
+      <label>Phone Number</label>
+      <input ng-model="y.phone_number">
+    </md-input-container>
+    <md-input-container flex>
+      <label>Alternate Phone Number (Optional)</label>
+      <input ng-model="y.alternate_number">
+    </md-input-container>
+  </div>
+</md-content>
+
+
   <section layout="row" layout-sm="column" layout-align="center center">
-    <md-button class="md-raised" ng-click="userChildReg(child)">Submit</md-button>
+    <md-button class="md-raised" ng-click="userChildReg(x,y,child)">Submit</md-button>
   </section>
 
-  <a ui-sref="medInfo">Add Medical Information Here (Optional)</a>
-</md-content>
 
 
 <!-- feet to inches image url 'https://converters360.com/charts/images-length/feet-to-inches.png' -->

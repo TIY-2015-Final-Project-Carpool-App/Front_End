@@ -60,16 +60,11 @@
         // Dashboard
         //================
 
-        .state('dashboard', {
-          url: '/dashboard',
-          templateUrl:'js/routes/dashboard/dashboard.tpl.html',
-          controller:'DashboardCtrl'
-        })
-        .state('dashboard.childinfo', {
-          url: '/dashboard/child',
-          templateUrl:'js/routes/dashboard/childinfopage.tpl.html',
-          controller:'DashboardCtrl'
-        })
+        // .state('dashboard', {
+        //   url: '/dashboard',
+        //   templateUrl:'js/routes/dashboard/childinfopage.tpl.html',
+        //   controller:'DashboardCtrl'
+        // })
 
         //=================
         // Dashboard Ends
@@ -85,3 +80,12 @@
     }]);
 
 }());
+
+
+
+
+// views: {
+//             'children': {
+//               templateUrl: 'js/routes/dashboard/childinfopage.tpl.html',
+//               controller:'DashboardCtrl'
+//             }
