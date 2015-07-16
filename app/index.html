@@ -11,14 +11,43 @@
 </head>
 <body ng-app="myApp">
 
-<div class="login" ng-controller="LoginCtrl">
-  <a ui-sref="login">Login</a> |
-  <a ui-sref="reg">Registration</a> |
-  <a ui-sref="medInfo">Medical Info</a> |
-  <a ui-sref="dashboard">Dashboard</a> |
-  <a ui-sref="editInfo">Edit User Info</a> |
-  <a ui-sref="logoutUser" ng-click="logoutUser()">Sign Out</a>
+<div ng-controller="LoginCtrl">
+  <md-content>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+          <div class="lock-size" layout="row" layout-align="center center" ng-controller="LoginCtrl">
+            <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
+              <md-fab-trigger>
+                <md-button>
+                  CONVOY
+                </md-button>
+              </md-fab-trigger>
+              <md-fab-actions>
+                <md-button>
+                  <a ui-sref="login">Login</a>
+                </md-button>
+                <md-button>
+                  <a ui-sref="medInfo">Medical Info</a>
+                </md-button>
+                <md-button>
+                  <a ui-sref="dashboard">Dashboard</a>
+                </md-button>
+                <md-button>
+                  <a ui-sref="editInfo">Edit User Info</a>
+                </md-button>
+                <md-button>
+                <!-- Figure out how to move this to the right of the toolbar -->
+                  <a ui-sref="logoutUser" ng-click="logoutUser()">Sign Out</a>
+                </md-button>
+              </md-fab-actions>
+            </md-fab-speed-dial>
+          </div>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+  </md-content>
 </div>
+
 
 
   <div ui-view>

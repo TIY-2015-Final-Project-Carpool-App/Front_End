@@ -16,6 +16,7 @@
        console.log(x,y,child);
          RegService.userChildReg(x,y,child);
        };
+
    }
   ]);
 }());

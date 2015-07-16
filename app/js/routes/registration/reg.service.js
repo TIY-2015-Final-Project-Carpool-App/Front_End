@@ -113,30 +113,35 @@
 // Child Registration Setup startpoint
         this.userChildReg = function (x,y,child) {
 
-
-
+          child.user_id = getUserInfo().id;
+          console.log("This is the Child's user id" + ' ' + child.user_id);
 
           var kid = new Child (x,y,child);
           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
           console.log(kid);
           console.log('about to post to /children');
           $http.post(endpoint + '/children', child).success(function (data) {
-            console.log('posted to /children and got back', data);
-            console.log('setting currentUser to', data);
-            $cookies.putObject('currentUser', data);
+            // console.log('posted to /children and got back', data);
+            console.log('Childs Info', data);
+            // $cookies.putObject('currentUser', data);
             // $state.go('dashboard');
 
-            console.log('getting currentUser');
-            var user = getUserInfo();
-            console.log('user is', user);
-            var id = user.id;
-            console.log('about to post to', endpoint + '/child/'+id+'/medical', 'and send:', x);
-            $http.post(endpoint + '/child/'+id+'/medical', x);
-            console.log('about to post to', endpoint + '/child/'+id+'/contacts', 'and send:', y);
+            // console.log('getting currentUser');
+            var parent = getUserInfo();
+            // console.log('user is', parent);
+            var id = parent.id;
+            // console.log('about to post to', endpoint + '/child/'+id+'/medical', 'and send:', x);
+            $http.post(endpoint + '/child/'+id+'/medical', x)
+            .success(function (data) { //took out data from parameters
+              console.log('final change to child medical:', data);
+            });
+            // console.log('about to post to', endpoint + '/child/'+id+'/contacts', 'and send:', y);
             $http.post(endpoint + '/child/'+id+'/contacts', y)
             .success(function (data) { //took out data from parameters
-              $cookies.putObject('currentUser', data);
-              $state.go('dashboard');
+              // parent.child = child;
+              console.log('final change to Child EmergCont:', data);
+            //   $cookies.putObject('currentUser', parent);
+              // $state.go('dashboard');
             });
 
           });

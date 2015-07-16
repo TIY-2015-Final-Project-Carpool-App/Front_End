@@ -60,11 +60,11 @@
         // Dashboard
         //================
 
-        // .state('dashboard', {
-        //   url: '/dashboard',
-        //   templateUrl:'js/routes/dashboard/childinfopage.tpl.html',
-        //   controller:'DashboardCtrl'
-        // })
+        .state('dashboard', {
+          url: '/dashboard',
+          templateUrl:'js/routes/dashboard/childinfopage.tpl.html',
+          controller:'DashboardCtrl'
+        })
 
         //=================
         // Dashboard Ends
