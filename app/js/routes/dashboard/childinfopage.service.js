@@ -21,28 +21,28 @@
         // };
 
 
-        //Get User Child Object
-        this.appendChildInfo = function (x,y,child) {
-          $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
+        // //Get User Child Object
+        // this.appendChildInfo = function (x,y,child) {
+        //   $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
 
-          var user = user.userusername
+        //   var user = user.userusername
 
-          var children = $http.get(endpoint + '/user/'+username+'/children', child);
-          var id = child.id;
+        //   var children = $http.get(endpoint + '/user/'+username+'/children', child);
+        //   var id = child.id;
 
-          // user/:username/children
-          // run functions to render children array
-          // run a function to render each invidual child's id using a loop
+        //   // user/:username/children
+        //   // run functions to render children array
+        //   // run a function to render each invidual child's id using a loop
 
-            return $http.get(endpoint + '/user/'+username+'/children', child).success(function (contact, medical){
+        //     return $http.get(endpoint + '/user/'+username+'/children', child).success(function (contact, medical){
 
-              var childContact = _.filter
-              var childMedical = _.filter
-            })
-            return $http.get(endpoint + '/child/'+id+'/contacts', y);
-            return $http.get(endpoint + '/child/'+id+'/medical', x);
+        //       var childContact = _.filter
+        //       var childMedical = _.filter
+        //     })
+        //     return $http.get(endpoint + '/child/'+id+'/contacts', y);
+        //     return $http.get(endpoint + '/child/'+id+'/medical', x);
 
-        };
+        // };
 
 
 

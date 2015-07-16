@@ -141,7 +141,7 @@
               // parent.child = child;
               console.log('final change to Child EmergCont:', data);
             //   $cookies.putObject('currentUser', parent);
-              // $state.go('dashboard');
+              $state.go('dashboard');
             });
 
           });
