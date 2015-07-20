@@ -19,7 +19,7 @@
             <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{demo.selectedDirection}}" ng-class="demo.selectedMode">
               <md-fab-trigger>
                 <md-button>
-                  CONVOY
+                  MENU
                 </md-button>
               </md-fab-trigger>
               <md-fab-actions>
@@ -39,14 +39,23 @@
                 <!-- Figure out how to move this to the right of the toolbar -->
                   <a ui-sref="logoutUser" ng-click="logoutUser()">Sign Out</a>
                 </md-button>
+                <md-button>
+                <!-- Figure out how to move this to the right of the toolbar -->
+                  <a ui-sref="createCarpool" ng-click="createCarpoolInvites()">Create Carpool</a>
+                </md-button>
+
               </md-fab-actions>
             </md-fab-speed-dial>
           </div>
+        <span flex></span>
         <span flex></span>
       </div>
     </md-toolbar>
   </md-content>
 </div>
+
+
+
 
 
 
@@ -96,7 +105,9 @@
   <script src="js/routes/medinfo/medinfo.controller.js"></script>
   <!-- Profile -->
   <script src="js/routes/profile/profile.controller.js"></script>
-  <!-- Registration -->
+  <!-- Carpool -->
+  <script src="js/routes/carpool/carpool.controller.js"></script>
+  <script src="js/routes/carpool/carpool.service.js"></script>
 
 
 </body>

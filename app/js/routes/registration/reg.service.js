@@ -82,7 +82,7 @@
           $cookies.remove('access_token');
           $cookies.remove('currentUser');
           SERVER.CONFIG.headers['Access-Token'] = '';
-          $state.reload();
+          $state.go('login');
         };
 
         //Status Check, if user routes to login page and is logged in, route to dashboard

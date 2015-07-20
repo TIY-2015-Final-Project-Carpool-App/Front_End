@@ -1,0 +1,26 @@
+<div ng-controller="CarpoolCtrl" layout="column" class="md-whiteframe-z1" style="width: 65%; margin-left: auto; margin-right: auto; margin-top: 5%;">
+  <md-content layout-padding>
+    <form name="userForm">
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Title</label>
+          <input ng-model="trip.title">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Description</label>
+          <input ng-model="trip.description">
+        </md-input-container>
+      </div>
+      <div ng-repeat="invite in invites">
+        <md-input-container flex>
+          <label>Email convoy invites here</label>
+          <input ng-model="invite.email" email="">
+        </md-input-container>
+      </div>
+    </form>
+  </md-content>
+  <section layout="row" layout-sm="column" layout-align="center center" style="width:50%">
+      <md-button ng-click="addNewInvite()">Add another email</md-button>
+      <md-button class="md-raised" ng-click="addCP(trip, invite)">Submit</md-button>
+  </section>
+</div>

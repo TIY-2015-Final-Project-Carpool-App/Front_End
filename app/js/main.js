@@ -71,10 +71,10 @@
         //=================
 
 
-        .state('editInfo', {
-          url: '/edituserinfo',
-          templateUrl:'js/routes/profile/editprofile.tpl.html',
-          controller:'ProfileCtrl'
+        .state('createCarpool', {
+          url: '/createCarpool',
+          templateUrl:'js/routes/carpool/carpool.tpl.html',
+          controller:'CarpoolCtrl'
         });
 
     }]);
