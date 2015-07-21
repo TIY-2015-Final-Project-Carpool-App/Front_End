@@ -70,12 +70,24 @@
         // Dashboard Ends
         //=================
 
+        //================
+        // Carpool
+        //================
 
         .state('createCarpool', {
           url: '/createCarpool',
           templateUrl:'js/routes/carpool/carpool.tpl.html',
           controller:'CarpoolCtrl'
+        })
+
+        .state('carpoolSuccess', {
+          url: '/carpoolSuccess',
+          templateUrl:'js/routes/carpool/checkemail.tpl.html',
+          controller:'CarpoolCtrl'
         });
+        //================
+        // Carpool Ends
+        //================
 
     }]);
 

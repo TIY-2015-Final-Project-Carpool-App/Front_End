@@ -60,33 +60,12 @@
 
               console.log('response2', response);
 
+              $state.go('carpoolSuccess');
             });
 
-          //   user.user_id = getUserInfo().id;
-          //   console.log("This is the Child's user id" + ' ' + user.user_id);
-
-          //   user.user_name = getUserInfo().username;
-          //   console.log();
-
-          //   var CP = new Carpool(trip, invite);
-
-          //   $http.post(endpoint + '/carpools', trip).success(function(){
-
-          //     console.log(trip);
-          //     console.log(invite);
-
-          //     //   $http.get(endpoint + '/user/'+username+'/carpools', data).success(function (){
-
-          //     //   })
-
-
-          //     // $http.post(endpoint + '/carpool/'+ id +'', invite);
-          // });
         };
 
 
       }
     ]);
 }());
-
-// /carpool/:id
