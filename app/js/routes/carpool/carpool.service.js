@@ -20,17 +20,17 @@
         this.invite       = options.invite;
       };
 
-      // this.addNewInvite = function() {
-      //           var inviteArray = [];
-
-      //           var num = $scope.invites.length + 1;
-
-      //           $scope.invites.push({'invite': num });
-
-      //           // inviteArray.push( _.pluck(addNewInvite, 'email'));
-      //           _.pluck(addNewInvite, 'email');
-
-      //           return inviteArray;
+      var Appointment = function (options) {
+        this.start            = options.start;
+        this.title            = options.title;
+        this.origin           = options.origin;
+        this.destination      =  options. destination;
+        this.distance_filter  = options.distance_filter;
+        this.seats            = options.seats;
+      };
+      // ==================
+      // Create a Carpool
+      // ==================
 
 
       this.addCP = function (trip, invites) {
@@ -64,6 +64,38 @@
             });
 
         };
+
+      // ======================
+      // Create a Carpool End
+      // ======================
+
+
+
+      // =======================
+      // Create an Appointment
+      // =======================
+
+
+      // Get carpool ID .then post /carpool/:id/appointments
+      var user = getUserInfo();
+      console.log('user ' + user);
+      var user_id = user.user_id;
+      console.log('user_id ' + user_id);
+      var carpool_id = $http.get(endpoint + '/carpool/'+user_id+'', SERVER.CONFIG);
+      console.log('carpool_id ' + carpool_id);
+      // $http.post(endpoint + '/carpool/:id/appointments', appointment, SERVER.CONFIG)
+
+      // this.addAppointment = function (appointment) {
+
+      // }
+
+
+
+
+      // ===========================
+      // Create an Appointment End
+      // ===========================
+
 
 
       }

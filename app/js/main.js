@@ -80,6 +80,12 @@
           controller:'CarpoolCtrl'
         })
 
+        .state('createAppointment', {
+          url: '/createAppointment',
+          templateUrl:'js/routes/dashboard/appointment.tpl.html',
+          controller:'CarpoolCtrl'
+        })
+
         .state('carpoolSuccess', {
           url: '/carpoolSuccess',
           templateUrl:'js/routes/carpool/checkemail.tpl.html',

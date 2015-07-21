@@ -1,0 +1,46 @@
+<h2 style="text-align: center; margin-right: auto; margin-left: auto;">Create a Carpool Appointment</h2>
+<div ng-controller="CarpoolCtrl"  ng-repeat="appointment in appointments" layout="column" class="md-whiteframe-z1" style="width: 65%; margin-left: auto; margin-right: auto; margin-top: 5%;">
+  <md-content layout-padding>
+    <form name="appointmentForm">
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Start Time (example: 31/12/2015(DD/MM/YYYY) 16:30 (24hr format))</label>
+          <input ng-model="appointment.start">
+        </md-input-container>
+      </div>
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Title</label>
+          <input ng-model="appointment.title">
+        </md-input-container>
+      </div>
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Origin Location</label>
+          <input ng-model="appointment.origin">
+        </md-input-container>
+      </div>
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Destination</label>
+          <input ng-model="appointment.destination">
+        </md-input-container>
+      </div>
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Max Travel Radius (in miles)</label>
+          <input ng-model="appointment.distance_filter">
+        </md-input-container>
+      </div>
+      <div layout layout-sm="column">
+        <md-input-container flex>
+          <label>Seats Available</label>
+          <input ng-model="appointment.seats">
+        </md-input-container>
+      </div>
+    </form>
+  </md-content>
+  <section layout="row" layout-sm="column" layout-align="center center" style="width:50%">
+      <md-button class="md-raised" ng-click="addAppointment(appointment)">Submit</md-button>
+  </section>
+</div>
