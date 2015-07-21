@@ -3,8 +3,8 @@
   'use strict';
 
   angular.module('myApp')
-    .service('CarpoolService', ['SERVER', '$http', '$cookies', '$state', '$compile',
-      function (SERVER, $http, $cookies, $state, $compile) {
+    .service('CarpoolService', ['SERVER', '$http', '$cookies', '$state', '$compile','$q',
+      function (SERVER, $http, $cookies, $state, $compile, $q) {
 
       console.log('This is the CarpoolService');
 
@@ -18,7 +18,7 @@
         this.title        = options.title;
         this.description  = options.description;
         this.invite       = options.invite;
-      }
+      };
 
       // this.addNewInvite = function() {
       //           var inviteArray = [];
@@ -33,19 +33,55 @@
       //           return inviteArray;
 
 
-      this.addCP = function (trip, invite) {
+      this.addCP = function (trip, invites) {
 
-            user.user_id = getUserInfo().id;
-            console.log("This is the Child's user id" + ' ' + user.user_id);
+            invites = _.pluck(invites, 'emails');
 
-            var CP = new Carpool(trip, invite);
+            console.log('trip', trip);
+            console.log('invite', invites);
 
-            $http.post(endpoint + '/carpools', trip).success(function(){
+            console.log('token', $cookies.get('access_token'));
+            console.log('token', SERVER.CONFIG);
 
-              var id = cpAdmin.user_id;
+            $http.post(endpoint + '/carpools', trip, SERVER.CONFIG)
 
-              $http.post(endpoint + '/carpool/'+ id +'', invite);
-          });
+            .then(function(response) {
+
+              console.log('response1', response);
+
+
+              var emails = { emails: invites };
+
+              return $http.post(endpoint + '/carpool/' + response.data.id, emails, SERVER.CONFIG);
+
+            })
+
+            .then(function(response){
+
+              console.log('response2', response);
+
+            });
+
+          //   user.user_id = getUserInfo().id;
+          //   console.log("This is the Child's user id" + ' ' + user.user_id);
+
+          //   user.user_name = getUserInfo().username;
+          //   console.log();
+
+          //   var CP = new Carpool(trip, invite);
+
+          //   $http.post(endpoint + '/carpools', trip).success(function(){
+
+          //     console.log(trip);
+          //     console.log(invite);
+
+          //     //   $http.get(endpoint + '/user/'+username+'/carpools', data).success(function (){
+
+          //     //   })
+
+
+          //     // $http.post(endpoint + '/carpool/'+ id +'', invite);
+          // });
         };
 
 

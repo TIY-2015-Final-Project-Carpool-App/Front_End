@@ -70,6 +70,7 @@
           $http.post(endpoint + '/users/login', user).success (function(data) {
           // console.log(data);
           $cookies.put('access_token', data.user.access_token);
+          SERVER.CONFIG.headers['Access-Token'] = data.user.access_token;
           $cookies.putObject('currentUser', data.user);
           updateConfig(data.user);
           $state.go('dashboard');

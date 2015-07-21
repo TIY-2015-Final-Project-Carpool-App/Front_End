@@ -14,13 +14,13 @@
       <div ng-repeat="invite in invites">
         <md-input-container flex>
           <label>Email convoy invites here</label>
-          <input ng-model="invite.email" email="">
+          <input ng-model="invite.emails" email="">
         </md-input-container>
       </div>
     </form>
   </md-content>
   <section layout="row" layout-sm="column" layout-align="center center" style="width:50%">
       <md-button ng-click="addNewInvite()">Add another email</md-button>
-      <md-button class="md-raised" ng-click="addCP(trip, invite)">Submit</md-button>
+      <md-button class="md-raised" ng-click="addCP(trip, invites)">Submit</md-button>
   </section>
 </div>
