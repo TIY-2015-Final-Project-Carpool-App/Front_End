@@ -54,6 +54,19 @@
         };
 
 
+        this.checkUser = function () {
+          var user = {
+            access_token: $cookies.get('access_token')
+          };
+          if (user.access_token) {
+            updateConfig(user);
+          } else {
+            console.log('NO ONE LOGGED IN');
+            // $state.go('login');
+          }
+        };
+
+
         //Add User to SERVER and add new cookies
         this.addUser = function (user) {
             var x = new User(user);

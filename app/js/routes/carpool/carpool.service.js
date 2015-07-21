@@ -3,8 +3,8 @@
   'use strict';
 
   angular.module('myApp')
-    .service('CarpoolService', ['SERVER', '$http', '$cookies', '$state', '$compile','$q',
-      function (SERVER, $http, $cookies, $state, $compile, $q) {
+    .service('CarpoolService', ['SERVER', '$http', '$cookies', '$state', '$compile','$q', 'RegService',
+      function (SERVER, $http, $cookies, $state, $compile, $q, RegService) {
 
       console.log('This is the CarpoolService');
 
@@ -20,11 +20,11 @@
         this.invite       = options.invite;
       };
 
-      var Appointment = function (options) {
+      var Appointments = function (options) {
         this.start            = options.start;
         this.title            = options.title;
         this.origin           = options.origin;
-        this.destination      =  options. destination;
+        this.destination      = options.destination;
         this.distance_filter  = options.distance_filter;
         this.seats            = options.seats;
       };
@@ -75,19 +75,34 @@
       // Create an Appointment
       // =======================
 
-
-      // Get carpool ID .then post /carpool/:id/appointments
+      // Get carpool ID
       var user = getUserInfo();
-      console.log('user ' + user);
-      var user_id = user.user_id;
-      console.log('user_id ' + user_id);
-      var carpool_id = $http.get(endpoint + '/carpool/'+user_id+'', SERVER.CONFIG);
-      console.log('carpool_id ' + carpool_id);
+      console.log('User ', user);
+      var username = user.username;
+      console.log("This is the User's username: ", username);
+
+      this.addAppointment = function (appointment) {
+
+        var newAppointment = new Appointments(appointment);
+        // Get User's Carpools Index
+
+        RegService.checkUser();
+
+        console.log(SERVER.CONFIG);
+        $http.get(endpoint + '/user/'+ username +'/carpools', SERVER.CONFIG);
+          console.log('This is data from appointment:', appointment);
+
+        // .then(function (){
+
+        // })
+
+
+
       // $http.post(endpoint + '/carpool/:id/appointments', appointment, SERVER.CONFIG)
 
-      // this.addAppointment = function (appointment) {
 
-      // }
+
+      };
 
 
 

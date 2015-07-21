@@ -1,5 +1,5 @@
 <h2 style="text-align: center; margin-right: auto; margin-left: auto;">Create a Carpool Appointment</h2>
-<div ng-controller="CarpoolCtrl"  ng-repeat="appointment in appointments" layout="column" class="md-whiteframe-z1" style="width: 65%; margin-left: auto; margin-right: auto; margin-top: 5%;">
+<div ng-controller="CarpoolCtrl"   layout="column" class="md-whiteframe-z1" style="width: 65%; margin-left: auto; margin-right: auto; margin-top: 5%;">
   <md-content layout-padding>
     <form name="appointmentForm">
       <div layout layout-sm="column">
@@ -40,7 +40,7 @@
       </div>
     </form>
   </md-content>
-  <section layout="row" layout-sm="column" layout-align="center center" style="width:50%">
+  <section layout="row" layout-sm="column" layout-align="center center">
       <md-button class="md-raised" ng-click="addAppointment(appointment)">Submit</md-button>
   </section>
 </div>

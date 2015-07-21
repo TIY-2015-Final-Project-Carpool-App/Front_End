@@ -15,17 +15,17 @@
           var inviteArray = [];
           var num = $scope.invites.length;
           $scope.invites.push({'invite': num });
-          // inviteArray.push( _.pluck(addNewInvite, 'email') );
-          // return inviteArray;
         };
 
 
         $scope.addCP = function (trip, invites) {
-          // console.log(trip);
-          // console.log(invite);
           CarpoolService.addCP(trip, invites);
         };
 
+        $scope.addAppointment = function (appointment) {
+          console.log('Appointments: ' + appointment);
+          $scope.appointments = CarpoolService.addAppointment(appointment);
+        };
    }
   ]);
 }());
