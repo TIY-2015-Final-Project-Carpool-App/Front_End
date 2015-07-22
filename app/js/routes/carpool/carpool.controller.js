@@ -3,8 +3,20 @@
 
   angular.module('myApp')
 
-  .controller('CarpoolCtrl', ['$scope', '$http', '$state', 'CarpoolService',
-   function($scope, $http, $state, CarpoolService) {
+  .controller('CarpoolCtrl', ['$scope', '$http', '$state', 'CarpoolService', 'SERVER', 'RegService', '$cookies',
+   function($scope, $http, $state, CarpoolService, SERVER, RegService, $cookies) {
+
+      var endpoint = SERVER.URL;
+
+      var getUserInfo = function () {
+          return $cookies.getObject('currentUser');
+        };
+      // Get carpool ID
+      var user = getUserInfo();
+      console.log('User ', user);
+
+      var username = user.username;
+      console.log("This is the User's username: ", username);
 
       $scope.invites = [{invite: 0, emails: 'temp@temp.com'}];
 
@@ -23,8 +35,14 @@
         };
 
         $scope.addAppointment = function (appointment) {
-          console.log('Appointments: ' + appointment);
-          $scope.appointments = CarpoolService.addAppointment(appointment);
+          RegService.checkUser(); //Pass this to have access_token to pass with submit
+            console.log(SERVER.CONFIG);
+
+          $http.get(endpoint + '/user/'+ username +'/carpools', SERVER.CONFIG)
+            .then( function (response) {
+              $scope.addAppointment = response.data;
+              console.log('This is the response from addAppointment in CTRL: ', response);
+            });
         };
    }
   ]);

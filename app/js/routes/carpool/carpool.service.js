@@ -43,6 +43,8 @@
             console.log('token', $cookies.get('access_token'));
             console.log('token', SERVER.CONFIG);
 
+            RegService.checkUser(); //Pass this to have access_token to pass with submit
+
             $http.post(endpoint + '/carpools', trip, SERVER.CONFIG)
 
             .then(function(response) {
@@ -81,27 +83,24 @@
       var username = user.username;
       console.log("This is the User's username: ", username);
 
+        RegService.checkUser(); //Pass this to have access_token to pass with submit
+            console.log(SERVER.CONFIG);
+
+
       this.addAppointment = function (appointment) {
 
         var newAppointment = new Appointments(appointment);
-        // Get User's Carpools Index
 
-        RegService.checkUser();
+        this.addAppointment()
+        .then (function (results) {
 
-        console.log(SERVER.CONFIG);
-        $http.get(endpoint + '/user/'+ username +'/carpools', SERVER.CONFIG);
-          console.log('This is data from appointment:', appointment);
+          console.log('This is the response data from appointment:', results);
 
-        // .then(function (){
-
-        // })
-
-
-
-      // $http.post(endpoint + '/carpool/:id/appointments', appointment, SERVER.CONFIG)
-
-
-
+          return $http.post(endpoint + '/carpool/'+ response.data.id +'/appointments', results, SERVER.CONFIG);
+        })
+        .then (function(results){
+          console.log('results 2 CP Service', results);
+        });
       };
 
 
