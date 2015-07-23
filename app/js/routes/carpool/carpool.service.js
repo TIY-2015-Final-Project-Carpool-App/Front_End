@@ -73,44 +73,6 @@
 
 
 
-      // =======================
-      // Create an Appointment
-      // =======================
-
-      // Get carpool ID
-      var user = getUserInfo();
-      console.log('User ', user);
-      var username = user.username;
-      console.log("This is the User's username: ", username);
-
-        RegService.checkUser(); //Pass this to have access_token to pass with submit
-            console.log(SERVER.CONFIG);
-
-
-      this.addAppointment = function (appointment) {
-
-        var newAppointment = new Appointments(appointment);
-
-        this.addAppointment()
-        .then (function (results) {
-
-          console.log('This is the response data from appointment:', results);
-
-          return $http.post(endpoint + '/carpool/'+ response.data.id +'/appointments', results, SERVER.CONFIG);
-        })
-        .then (function(results){
-          console.log('results 2 CP Service', results);
-        });
-      };
-
-
-
-
-      // ===========================
-      // Create an Appointment End
-      // ===========================
-
-
 
       }
     ]);

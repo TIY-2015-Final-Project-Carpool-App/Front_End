@@ -13,10 +13,10 @@
         };
       // Get carpool ID
       var user = getUserInfo();
-      console.log('User ', user);
+      // console.log('User ', user);
 
       var username = user.username;
-      console.log("This is the User's username: ", username);
+      // console.log("This is the User's username: ", username);
 
       $scope.invites = [{invite: 0, emails: 'temp@temp.com'}];
 
@@ -34,16 +34,31 @@
           CarpoolService.addCP(trip, invites);
         };
 
-        $scope.addAppointment = function (appointment) {
+
+
+       // =======================
+       // Create an Appointment
+       // =======================
+
+      $scope.addAppointment = function (appointment) {
           RegService.checkUser(); //Pass this to have access_token to pass with submit
             console.log(SERVER.CONFIG);
 
           $http.get(endpoint + '/user/'+ username +'/carpools', SERVER.CONFIG)
             .then( function (response) {
-              $scope.addAppointment = response.data;
+             var carpool_id =  _.pluck(response.data, 'id');
+              console.log(carpool_id);
               console.log('This is the response from addAppointment in CTRL: ', response);
+              $http.post(endpoint + '/carpool/'+ carpool_id +'/appointments', appointment, SERVER.CONFIG);
+
             });
         };
+
+      // ===========================
+      // Create an Appointment End
+      // ===========================
+
+
    }
   ]);
 }());

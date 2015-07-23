@@ -6,6 +6,7 @@
     .service('RegService', ['SERVER', '$http', '$cookies', '$state',
       function (SERVER, $http, $cookies, $state) {
 
+
         var endpoint = SERVER.URL;
 
         var getUserInfo = function () {
@@ -128,7 +129,7 @@
         this.userChildReg = function (x,y,child) {
 
           child.user_id = getUserInfo().id;
-          console.log("This is the Child's user id" + ' ' + child.user_id);
+          console.log("This is the Child's user id ", child.user_id);
 
           var kid = new Child (x,y,child);
           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
@@ -139,18 +140,16 @@
             console.log('Childs Info', data);
             // $cookies.putObject('currentUser', data);
             // $state.go('dashboard');
-
+              child_ID = _.pluck(child, 'id');
             // console.log('getting currentUser');
-            var parent = getUserInfo();
-            // console.log('user is', parent);
-            var id = parent.id;
+            checkUser(child);
             // console.log('about to post to', endpoint + '/child/'+id+'/medical', 'and send:', x);
-            $http.post(endpoint + '/child/'+id+'/medical', x)
+            $http.post(endpoint + '/child/'+ child_ID +'/medical', x)
             .success(function (data) { //took out data from parameters
               console.log('final change to child medical:', data);
             });
             // console.log('about to post to', endpoint + '/child/'+id+'/contacts', 'and send:', y);
-            $http.post(endpoint + '/child/'+id+'/contacts', y)
+            $http.post(endpoint + '/child/'+ child_ID +'/contacts', y)
             .success(function (data) { //took out data from parameters
               // parent.child = child;
               console.log('final change to Child EmergCont:', data);
@@ -159,28 +158,14 @@
             });
 
           });
-
-
-
-
-          // $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
-          // var user = getUserInfo();
-          // var id = user.id;
-          // $http.post(endpoint + '/child/'+id+'/medical', x);
-          // $http.post(endpoint + '/child/'+id+'/contacts', y)
-          // .success(function (data) {
-          //   $cookies.putObject('currentUser', data.user);
-          //   $state.go('dashboard');
-          // });
-
-
-
-
         };
 
 
 
-// Child Registration Setup endpoint
+
+
+
+
 
 
 
@@ -191,6 +176,3 @@
 
 
 
-// $cookies.put('access_token', data.user.access_token);
-// $cookies.putObject('currentUser', data.user);
-// updateConfig(data.user); //Added this to see if it works

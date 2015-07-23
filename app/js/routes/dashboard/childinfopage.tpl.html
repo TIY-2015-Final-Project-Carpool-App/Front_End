@@ -16,23 +16,24 @@
         <h4>{{ child.first_name + ' ' + child.last_name }}'s Medical Information</h4>
         <h4 class="md-title">{{ child.first_name + ' ' + child.last_name }}</h4>
           <ul>
-            <li>{{ 'age :' + ' ' + child.age }}</li>
-            <li>{{ 'date of birth :' + ' ' + child.dob }}</li>
-            <li>{{ 'height :' + ' ' + child.height }}</li>
-            <li>{{ 'weight :' + ' ' + child.weight }}</li>
-            <li>{{ 'address :' + ' ' + child.address }}</li>
-            <li>{{ 'phone number :' + ' ' + child.phone_number }}</li>
+            <li>{{ 'allergies and reactions :' + ' ' + child.allergies }}</li>
+            <li>{{ 'medical conditions :' + ' ' + child.conditions }}</li>
+            <li>{{ 'medications :' + ' ' + child.medications }}</li>
+            <li>{{ 'blood type :' + ' ' + child.blood_type }}</li>
+            <li>{{ 'insurance company :' + ' ' + child.insurance }}</li>
+            <li>{{ 'religious preference :' + ' ' + child.religious_preference }}</li>
+            <li>{{ 'additional information :' + ' ' + child.notes }}</li>
           </ul>
 
         <h4>{{ child.first_name + ' ' + child.last_name }}'s Emergency Contact Information</h4>
         <h4 class="md-title">{{ child.first_name + ' ' + child.last_name }}</h4>
           <ul>
-            <li>{{ 'age :' + ' ' + child.age }}</li>
-            <li>{{ 'date of birth :' + ' ' + child.dob }}</li>
-            <li>{{ 'height :' + ' ' + child.height }}</li>
-            <li>{{ 'weight :' + ' ' + child.weight }}</li>
+            <li>{{ 'first name :' + ' ' + child.first_name }}</li>
+            <li>{{ 'last name :' + ' ' + child.last_name }}</li>
+            <li>{{ 'relationship :' + ' ' + child.relationship }}</li>
             <li>{{ 'address :' + ' ' + child.address }}</li>
             <li>{{ 'phone number :' + ' ' + child.phone_number }}</li>
+            <li>{{ 'alternate number :' + ' ' + child.alternate_number }}</li>
           </ul>
 
       </md-card-content>
