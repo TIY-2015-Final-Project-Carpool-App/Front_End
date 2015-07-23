@@ -129,26 +129,28 @@
         this.userChildReg = function (x,y,child) {
 
           child.user_id = getUserInfo().id;
-          console.log("This is the Child's user id ", child.user_id);
+          console.log("This is the User's user id ", child.user_id);
 
           var kid = new Child (x,y,child);
           $http.defaults.headers.common = {'Access-Token' : $cookies.get('access_token')};
           console.log(kid);
           console.log('about to post to /children');
           $http.post(endpoint + '/children', child).success(function (data) {
-            // console.log('posted to /children and got back', data);
+            console.log('posted to /children and got back', data);
             console.log('Childs Info', data);
             // $cookies.putObject('currentUser', data);
             // $state.go('dashboard');
-              child_ID = _.pluck(child, 'id');
-            // console.log('getting currentUser');
-            checkUser(child);
-            // console.log('about to post to', endpoint + '/child/'+id+'/medical', 'and send:', x);
+              var child_ID = _.filter(data, function(){
+                return data.id;
+              });
+            console.log('child_ID', child_ID);
+            // checkUser();
+            console.log('about to post to', endpoint + '/child/'+child_ID+'/medical', 'and send:', x);
             $http.post(endpoint + '/child/'+ child_ID +'/medical', x)
             .success(function (data) { //took out data from parameters
               console.log('final change to child medical:', data);
             });
-            // console.log('about to post to', endpoint + '/child/'+id+'/contacts', 'and send:', y);
+            console.log('about to post to', endpoint + '/child/'+child_ID+'/contacts', 'and send:', y);
             $http.post(endpoint + '/child/'+ child_ID +'/contacts', y)
             .success(function (data) { //took out data from parameters
               // parent.child = child;
