@@ -49,12 +49,11 @@
 
             .then(function(response) {
 
-              console.log('response1', response);
-
+              console.log('response1', response.data.id);
 
               var emails = { emails: invites };
 
-              return $http.post(endpoint + '/carpool/' + response.data.id, emails, SERVER.CONFIG);
+              return $http.post(endpoint + '/carpool/' + response.data.id , emails, SERVER.CONFIG);
 
             })
 
