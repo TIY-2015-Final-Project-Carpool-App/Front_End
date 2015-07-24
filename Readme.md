@@ -1,14 +1,35 @@
-## Welcome to My Angular Project
+![Convoy Logo](http://s21.postimg.org/7lyagodaf/logo_only2.png)
 
-> I am your Readme.md file, you should probably update me.
+## Overview
 
-
-## Usage
-
-This template contains some simple `gulp` tasks. They are as follows:
+**CONVOY**, is an Application which originally started out to scratch an itch. It gives our users the tools necessary to plan and track their own carpool schedules, as well as others in their carpool group. CONVOY also, targets those who have children under their responsibility, building trust in the community through collaboration.
 
 
-- `gulp watch`: This will launch a Node Server and start the standard `watchlist` task
-- `gulp bower`: This will move the bower components into their proper location. This will run during the `watch` task, but you may need to run it manually once in a while
 
-There are many more tasks, and you really should read through the `gulpfile.js`, but the ones above will take care of you in most cases.
+## Images
+
+####Some Screen Shots
+![calender](http://s24.postimg.org/838egl7cl/Screen_Shot_2015_07_24_at_10_18_06_AM.png)
+
+iOS carpool schedule calender feature.
+
+![map](http://s8.postimg.org/iyw46qzt1/Screen_Shot_2015_07_24_at_10_18_12_AM.png)
+
+iOS carpool map feature.
+
+![map](http://s28.postimg.org/actuugtrh/Screen_Shot_2015_07_24_at_10_18_24_AM.png)
+
+iOS bulletin board feature.
+
+![map](http://s22.postimg.org/53qxfzu0x/Screen_Shot_2015_07_24_at_11_10_21_AM.png)
+
+iOS child medical information board feature.
+
+##Contributors
+
+####Chris Aaron - iOS Developer
+**Tech Used:** CVCalendar, UIKit, GoogleMaps
+####Henry Phan - Backend Developer
+**Tech Used:** Ruby on Rails, Mandrill, Postgresql, Resque, Redis, Geocoder
+####Kishan Bhakta - Frontend Developer
+**Tech Used:** Angular JS, UI-Calender, UI-Router, Leaflets Maps
